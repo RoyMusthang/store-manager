@@ -6,6 +6,8 @@ async function create(name, quantity) {
   const [result] = await connection.execute(query, [name, quantity]);
   return {
     id: result.insertId,
+    name,
+    quantity,
   }
 }
 
