@@ -11,6 +11,13 @@ async function create(name, quantity) {
   }
 }
 
+async function getAll() {
+  const query = 'SELECT * FROM products;'
+  const [result] = await connection.execute(query);
+  return result;
+}
+
 module.exports = {
   create,
+  getAll,
 };
