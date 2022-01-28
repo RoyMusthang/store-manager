@@ -15,7 +15,7 @@ const validateName = rescue(
 
 const duplicate = rescue(
   async (req, res, next) => {
-    const { name } = req.body
+    const { name } = req.body;
     const listProducts = await productService.getAll();
     const result = listProducts.some((elem) => elem.name === name);
 
@@ -23,8 +23,8 @@ const duplicate = rescue(
       return res.status(409).json({ message: 'Product already exists' });
     }
     next();
-  }
-)
+  },
+);
 
 const validateQuantity = rescue(
   async (req, res, next) => {
