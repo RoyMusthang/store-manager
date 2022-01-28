@@ -25,9 +25,16 @@ async function getById(id) {
 }
 
 async function attProduct(id, name, quantity) {
-  const query = 'UPDATE products SET name = ?, quantity = ? WHERE id = ?';
+  const query = 'UPDATE products SET name = ?, quantity = ? WHERE id = ?;';
   await connection.execute(query, [name, quantity, id]);
   return { id, name, quantity };
+}
+
+async function removeProduct(id) {
+  const query = 'DELETE FROM products WHERE id = ?;';
+  const product = getById(id);
+  await connection.execute(query, [id]);
+  return product;
 }
 
 module.exports = {
@@ -35,4 +42,5 @@ module.exports = {
   getAll,
   getById,
   attProduct,
+  removeProduct,
 };

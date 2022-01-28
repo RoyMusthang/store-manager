@@ -20,9 +20,15 @@ async function attProduct(id, name, quantity) {
   return product;
 }
 
+async function removeProduct(id) {
+  const product = await productModel.removeProduct(id);
+  return product;
+}
+
 module.exports = {
   create,
   getAll,
   getById,
   attProduct,
+  removeProduct,
 };
