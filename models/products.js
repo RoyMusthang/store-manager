@@ -18,10 +18,16 @@ async function getAll() {
 }
 
 async function getById(id) {
-  const query = 'SELECT * FROM products WHERE id = ?';
+  const query = 'SELECT * FROM products WHERE id = ?;';
   const [result] = await connection.execute(query, [id]);
 
   return !result.length ? null : result[0];
+}
+
+async function AttProduct(id, name, quantity) {
+  const query = 'UPDATE Products SET name = ?, quantity = ? WHERE = ?;';
+  const [result] = await connection.execute(query, [name, quantity, id]);
+  return result;
 }
 
 module.exports = {
