@@ -10,7 +10,10 @@ async function getAll() {
   return getAllProduct;
 }
 
-async function getById
+async function getById(id, name, quantity) {
+  const getProductById = await productModel.getById(id, name, quantity);
+  return getProductById;
+}
 
 module.exports = {
   create,
