@@ -36,9 +36,9 @@ Products.put('/:id',
   validateQuantity,
   rescue(async (req, res) => {
     const { id } = req.params;
+    const { name, quantity } = req.body;
     const attProduct = await productService.attProduct(id, name, quantity);
-    res.status(200).json(attProduct)
-  })
-)
+    res.status(200).json(attProduct);
+  }));
 
 module.exports = Products;
