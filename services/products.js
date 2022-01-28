@@ -10,8 +10,8 @@ async function getAll() {
   return getAllProduct;
 }
 
-async function getById(id, name, quantity) {
-  const getProductById = await productModel.getById(id, name, quantity);
+async function getById(id) {
+  const getProductById = await productModel.getById(id);
   return getProductById;
 }
 
