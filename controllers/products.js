@@ -5,6 +5,7 @@ const productService = require('../services/products');
 const {
   validateName,
   validateQuantity,
+  productExists, 
 } = require('./validations');
 
 Products.get('/',
@@ -25,6 +26,7 @@ Products.post('/',
 );
 
 Products.get('/:id',
+  productExists,
   rescue(async (req, res) => {
     const { id } = req.params;
     const getProduct = await productService.getById(id);
