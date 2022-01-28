@@ -15,8 +15,8 @@ async function getById(id) {
   return getProductById;
 }
 
-async function AttProduct(id, name, quantity) {
-  const product = await productModel.AttProduct(id, name, quantity);
+async function attProduct(id, name, quantity) {
+  const product = await productModel.attProduct(id, name, quantity);
   return product;
 }
 
@@ -24,5 +24,5 @@ module.exports = {
   create,
   getAll,
   getById,
-  AttProduct,
+  attProduct,
 };

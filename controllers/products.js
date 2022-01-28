@@ -6,6 +6,7 @@ const {
   validateName,
   validateQuantity,
   productExists, 
+  duplicate,
 } = require('./validations');
 
 Products.get('/',
@@ -15,6 +16,7 @@ Products.get('/',
   }));
 
 Products.post('/',
+  duplicate,
   validateName,
   validateQuantity,
   rescue(async (req, res) => {
@@ -34,6 +36,7 @@ Products.get('/:id',
 Products.put('/:id',
   validateName,
   validateQuantity,
+  productExists,
   rescue(async (req, res) => {
     const { id } = req.params;
     const { name, quantity } = req.body;
