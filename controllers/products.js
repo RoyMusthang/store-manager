@@ -12,8 +12,7 @@ Products.get('/',
   rescue(async (req, res) => {
     const getAll = await productService.getAll();
     res.status(200).json(getAll);
-  })
-)
+  }));
 
 Products.post('/',
   validateName,
@@ -22,8 +21,7 @@ Products.post('/',
     const { name, quantity } = req.body;
     const newProduct = await productService.create(name, quantity);
     res.status(201).json(newProduct);
-  })
-);
+  }));
 
 Products.get('/:id',
   productExists,
@@ -31,6 +29,16 @@ Products.get('/:id',
     const { id } = req.params;
     const getProduct = await productService.getById(id);
     res.status(200).json(getProduct);
+  }));
+
+Products.put('/:id',
+  validateName,
+  validateQuantity,
+  rescue(async (req, res) => {
+    const { id } = req.params;
+    const attProduct = await productService.attProduct(id, name, quantity);
+    res.status(200).json(attProduct)
   })
-);
+)
+
 module.exports = Products;

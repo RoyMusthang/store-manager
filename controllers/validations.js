@@ -43,8 +43,8 @@ const productExists = rescue(
       return res.status(404).json({ message: 'Product not found' });
     }
   next();
-  }
-)
+  },
+);
 
 module.exports = {
   validateName,

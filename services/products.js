@@ -24,4 +24,5 @@ module.exports = {
   create,
   getAll,
   getById,
+  AttProduct,
 };
