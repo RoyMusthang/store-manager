@@ -35,7 +35,19 @@ const validateQuantity = rescue(
   },
 );
 
+const productExists = rescue(
+  async (req, res, next) => {
+    const { id } = req.params;
+    const product = await productService.getById(id);
+    if (product === null) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+  next();
+  }
+)
+
 module.exports = {
   validateName,
   validateQuantity,
+  productExists,
 };
