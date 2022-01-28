@@ -1,6 +1,6 @@
 const productModel = require('../models/products');
 
-async function createProduct(name, quantity) {
+async function create(name, quantity) {
   const newProduct = await productModel.create(name, quantity);
   return newProduct;
 }
@@ -10,7 +10,10 @@ async function getAll() {
   return getAllProduct;
 }
 
+async function getById
+
 module.exports = {
-  createProduct,
+  create,
   getAll,
+  getById,
 };
