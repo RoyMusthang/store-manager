@@ -15,7 +15,6 @@ const validateName = rescue(
     if (result) {
       return res.status(409).json({ message: 'Product already exists' });
     }
-
     next();
   },
 );
