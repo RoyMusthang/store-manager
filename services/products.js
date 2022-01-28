@@ -15,6 +15,11 @@ async function getById(id) {
   return getProductById;
 }
 
+async function AttProduct(id, name, quantity) {
+  const product = await productModel.AttProduct(id, name, quantity);
+  return product;
+}
+
 module.exports = {
   create,
   getAll,
