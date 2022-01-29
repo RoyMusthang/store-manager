@@ -1,5 +1,3 @@
-const rescue = require('express-rescue');
-
 const validateId = (req, res, next) => {
   const inputs = req.body;
   if (!inputs.some((sale) => sale.product_id)) {
@@ -26,4 +24,4 @@ const validateQuantity = (req, res, next) => {
 module.exports = {
   validateId,
   validateQuantity,
-}
+};

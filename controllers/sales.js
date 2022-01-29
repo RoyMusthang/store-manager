@@ -11,7 +11,7 @@ Sales.post('/',
   validateQuantity,
   rescue(async (req, res) => {
     const { body: sales } = req;
-    const newSales = await saleService.salesRecord(sales) ;
+    const newSales = await saleService.salesRecord(sales);
     res.status(201).json(newSales);
   }));
 

@@ -16,4 +16,4 @@ async function create(saleId, productId, quantity) {
 module.exports = {
   create,
   salesRecord,
-}
+};
