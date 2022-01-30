@@ -1,6 +1,6 @@
 const salesModel = require('../models/sales');
 
-async function salesRecord(sales) {
+async function create(sales) {
   const saleId = await salesModel.salesRecord();
   await Promise.all(sales.map(async (sale) => {
   // o trecho abaixo e uma adaptação criada em cima do código
@@ -16,6 +16,21 @@ async function salesRecord(sales) {
   return { id: saleId, itemsSold: sales };
 }
 
+async function getAll() {
+  const result = await salesModel.getAll();
+  return result;
+}
+
+async function getById(saleId) {
+  const sale = await salesModel.getById(saleId);
+  if (sale.lingth <= 0) {
+    return { message: "Sale not found" };
+  }
+    return sale;
+}
+
 module.exports = {
-  salesRecord,
+  create,
+  getAll,
+  getById,
 };
