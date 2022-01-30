@@ -15,4 +15,15 @@ Sales.post('/',
     res.status(201).json(newSales);
   }));
 
+Sales.get('/:id', 
+  rescue(async (req, res) => {
+    const { id } = req.params;
+    res.status(200).json({ message: "ainda não fiz nada aqui bro!" })
+  }))
+
+Sales.get('/',
+  rescue(async (req, res) => {
+    res.status(200).json({ message: "ainda não tem a rota" })
+  }))
+
 module.exports = Sales;
