@@ -18,15 +18,16 @@ Sales.post('/',
 Sales.get('/',
   rescue(async (req, res) => {
     const sales = await saleService.getAll();
-    res.status(200).json(sales)
-  }))
+    res.status(200).json(sales);
+  }));
 
 Sales.get('/:id', 
   rescue(async (req, res) => {
     const { id: saleId } = req.params;
     const sale = await saleService.getById(saleId);
+    console.log(sale);
     if (sale.length === 0) return res.status(404).json({ message: 'Sale not found' });
     res.status(200).json(sale);
-  }))
+  }));
 
 module.exports = Sales;

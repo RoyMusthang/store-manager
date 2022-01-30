@@ -23,10 +23,7 @@ async function getAll() {
 
 async function getById(saleId) {
   const sale = await salesModel.getById(saleId);
-  if (sale.lingth <= 0) {
-    return { message: "Sale not found" };
-  }
-    return sale;
+  return sale;
 }
 
 module.exports = {
