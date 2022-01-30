@@ -24,7 +24,8 @@ Sales.get('/',
 Sales.get('/:id', 
   rescue(async (req, res) => {
     const { id: saleId } = req.params;
-    const sale = await getById(saleId);
+    const sale = await saleService.getById(saleId);
+    if (sale.length === 0) return res.status(404).json({ message: 'Sale not found' });
     res.status(200).json(sale);
   }))
 
