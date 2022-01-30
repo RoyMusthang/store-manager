@@ -11,19 +11,21 @@ Sales.post('/',
   validateQuantity,
   rescue(async (req, res) => {
     const { body: sales } = req;
-    const newSales = await saleService.salesRecord(sales);
+    const newSales = await saleService.create(sales);
     res.status(201).json(newSales);
   }));
 
-Sales.get('/:id', 
-  rescue(async (req, res) => {
-    const { id } = req.params;
-    res.status(200).json({ message: "ainda não fiz nada aqui bro!" })
-  }))
-
 Sales.get('/',
   rescue(async (req, res) => {
-    res.status(200).json({ message: "ainda não tem a rota" })
+    const sales = await saleService.getAll();
+    res.status(200).json(sales)
+  }))
+
+Sales.get('/:id', 
+  rescue(async (req, res) => {
+    const { id: saleId } = req.params;
+    const sale = await getById(saleId);
+    res.status(200).json(sale);
   }))
 
 module.exports = Sales;
