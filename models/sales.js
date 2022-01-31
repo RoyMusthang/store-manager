@@ -34,8 +34,8 @@ async function getById(saleId) {
   return sale;
 }
 
-async function update(product, quantity) {
-  console.log(product);
+async function update(_salesId, product, quantity) {
+  console.log(quantity);
   const query = 'UPDATE sales_products SET quantity = ? WHERE product_id = ?;';
   const [result] = await connection.execute(query, [quantity, product]);
   return result;
