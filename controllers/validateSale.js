@@ -8,7 +8,6 @@ const validateId = (req, res, next) => {
 
 const validateQuantity = (req, res, next) => {
   const inputs = req.body;
-//  const ecmplo = [{ads: 3}, {asd:dd}]
   if (inputs.some((sale) => sale.quantity === undefined)) {
     return res.status(400).json({ message: '"quantity" is required' });
   }
@@ -20,11 +19,6 @@ const validateQuantity = (req, res, next) => {
 
   next();
 };
-
-const validateExist = (req, res, next) => {
-  
-  if (sale.length === 0) return res.status(404).json({ message: 'Sale not found' });
-}
 
 module.exports = {
   validateId,
