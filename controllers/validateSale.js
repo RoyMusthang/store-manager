@@ -21,6 +21,11 @@ const validateQuantity = (req, res, next) => {
   next();
 };
 
+const validateExist = (req, res, next) => {
+  
+  if (sale.length === 0) return res.status(404).json({ message: 'Sale not found' });
+}
+
 module.exports = {
   validateId,
   validateQuantity,

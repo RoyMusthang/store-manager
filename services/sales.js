@@ -26,8 +26,22 @@ async function getById(saleId) {
   return sale;
 }
 
+async function update(saleId, product) {
+  await Promise.all(product.map(async (prod) => {
+    const lintSnakeCase = 'product_id';
+    const {
+      [lintSnakeCase]: productId,
+      quantity,
+    } = prod;
+    await salesModel.update(saleId, productId, quantity);
+  }))
+  return { saleId: Number(saleId), itemUpdated: product };
+}
+
+
 module.exports = {
   create,
   getAll,
   getById,
+  update,
 };
