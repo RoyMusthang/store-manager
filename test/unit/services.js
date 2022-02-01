@@ -21,13 +21,13 @@ describe('Testes na camada de service', () => {
     });
   });
 
-  describe('testa funcionalidade de create', () => {
-    it('espera que venha em formato de objeto', async () => {
-      const response = await productService.create("Jamba", 10);
+//  describe('testa funcionalidade de create', () => {
+//    it('espera que venha em formato de objeto', async () => {
+//      const response = await productService.create("Jamba", 10);
 
-      expect(response).to.be.an('object');
-    });
-  });
+ //     expect(response).to.be.an('object');
+//    });
+//  });
 
   describe('Testa funcionalidade do getAll', () => {
     it('espera que venha em formato de array', async () => {
