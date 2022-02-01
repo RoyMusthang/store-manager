@@ -33,7 +33,7 @@ async function update(saleId, product) {
       [lintSnakeCase]: productId,
       quantity,
     } = prod;
-    await salesModel.update(productId, quantity);
+    await salesModel.update(saleId, productId, quantity);
   }));
   return { saleId: Number(saleId), itemUpdated: product };
 }
