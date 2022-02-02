@@ -1,10 +1,10 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 const connection = require('../../models/connection');
-const productsModel = require('../../models/products');
+const productsModel = require('../../models/products')
 
-describe('Insere um novo produto no BD', () => {
-    const productName = 'arroz';
+describe('Insere um novo produto', () => {
+    const productName = 'parada';
     const quantity = 10;
 
     before(() => {
