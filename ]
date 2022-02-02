@@ -32,7 +32,7 @@ describe('Insere um novo produto', () => {
 
 describe('Registra os produtos de uma venda do banco', () => {
     before(() => {
-      const sellItem = [{ affectedRows: 1 }];
+      const sellItem = undefined;
 
       sinon.stub(connection, 'execute').resolves(sellItem);
     });
@@ -49,7 +49,11 @@ describe('Registra os produtos de uma venda do banco', () => {
       }
       const result = await saleModel.create(obj);
 
-      expect(result).to.deep.equal(undefined);
+      expect(result).to.deep.equal({
+        result: {
+          affectedRows: 1,
+        }
+      });
     });
   });
   describe('Atualiza uma venda do banco', () => {
