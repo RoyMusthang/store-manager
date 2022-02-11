@@ -13,7 +13,7 @@ const validateName = rescue(
   },
 );
 
-const checkDuplicate  = rescue(
+const checkDuplicate = rescue(
   async (req, res, next) => {
     const { name } = req.body;
     const listProducts = await productService.getAll();
