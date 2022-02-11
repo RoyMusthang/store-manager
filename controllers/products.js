@@ -6,7 +6,7 @@ const {
   validateName,
   validateQuantity,
   productExists, 
-  duplicate,
+  checkDuplicate,
 } = require('./validations');
 
 Products.get('/',
@@ -16,7 +16,7 @@ Products.get('/',
   }));
 
 Products.post('/',
-  duplicate,
+  checkDuplicate,
   validateName,
   validateQuantity,
   rescue(async (req, res) => {
