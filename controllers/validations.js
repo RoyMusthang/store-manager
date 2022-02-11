@@ -13,7 +13,7 @@ const validateName = rescue(
   },
 );
 
-const duplicate = rescue(
+const checkDuplicate  = rescue(
   async (req, res, next) => {
     const { name } = req.body;
     const listProducts = await productService.getAll();
@@ -56,6 +56,6 @@ const productExists = rescue(
 module.exports = {
   validateName,
   validateQuantity,
-  duplicate,
+  checkDuplicate,
   productExists,
 };
